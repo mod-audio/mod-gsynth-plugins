@@ -1,0 +1,83 @@
+<div class="mod-pedal ph-mod-gsynth-acid-bass">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+    <div class="ph-head"><div class="ph-name">GSynth Acid Bass</div><div class="ph-tag">PLACEHOLDER UI</div></div>
+    <div class="ph-group" style="left:20px;top:64px;width:368px">VCO</div>
+    <div class="ph-cell mod-control-group" style="left:20px;top:90px;width:184px">
+        <div class="ph-label">Wave</div>
+        <div class="ph-select mod-enumerated" mod-role="input-control-port" mod-port-symbol="wave" mod-widget="custom-select">
+            <div class="ph-select-value" mod-role="input-control-value" mod-port-symbol="wave"></div>
+            <div class="mod-enumerated-list">
+                <div mod-role="enumeration-option" mod-port-value="2">Saw</div>
+                <div mod-role="enumeration-option" mod-port-value="3">Square</div>
+            </div>
+        </div>
+    </div>
+    <div class="ph-group" style="left:20px;top:202px;width:368px">VCF</div>
+    <div class="ph-cell mod-control-group" style="left:20px;top:228px;width:92px">
+        <div class="ph-label">Cutoff</div>
+        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="cutoff" mod-widget="film" mod-widget-rotation="270"></div></div>
+        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="cutoff"></div>
+    </div>
+    <div class="ph-cell mod-control-group" style="left:112px;top:228px;width:92px">
+        <div class="ph-label">Resonance</div>
+        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="resonance" mod-widget="film" mod-widget-rotation="270"></div></div>
+        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="resonance"></div>
+    </div>
+    <div class="ph-cell mod-control-group" style="left:204px;top:228px;width:92px">
+        <div class="ph-label">Accent</div>
+        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="accent" mod-widget="film" mod-widget-rotation="270"></div></div>
+        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="accent"></div>
+    </div>
+    <div class="ph-cell mod-control-group" style="left:296px;top:228px;width:92px">
+        <div class="ph-label">Sweep</div>
+        <div class="ph-switch" mod-role="input-control-port" mod-port-symbol="sweep" mod-widget="switch"><div class="ph-switch-dot"></div></div>
+    </div>
+    <div class="ph-group" style="left:20px;top:340px;width:368px">FX</div>
+    <div class="ph-cell mod-control-group" style="left:20px;top:366px;width:92px">
+        <div class="ph-label">Reverb</div>
+        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="reverb" mod-widget="film" mod-widget-rotation="270"></div></div>
+        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="reverb"></div>
+    </div>
+    <div class="ph-group" style="left:20px;top:478px;width:368px">VCA / Dynamics</div>
+    <div class="ph-cell mod-control-group" style="left:20px;top:504px;width:92px">
+        <div class="ph-label">Level</div>
+        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="level" mod-widget="film" mod-widget-rotation="270"></div></div>
+        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="level"></div>
+    </div>
+    <div class="ph-light mod-light on" mod-role="bypass-light"></div>
+    <div class="ph-footswitch mod-footswitch" mod-role="bypass"></div>
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+        {{#effect.ports.midi.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+        {{#effect.ports.midi.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-midi-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
+    </div>
+</div>

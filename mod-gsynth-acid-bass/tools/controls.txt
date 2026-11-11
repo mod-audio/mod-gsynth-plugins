@@ -1,0 +1,7 @@
+wave 2.0 2.0 3.0
+cutoff 2.0 0.0 6.0
+resonance 0.876 0.01 1.0
+accent 6.45 0.0 10.0
+sweep 0.0 0.0 1.0
+reverb 0.195 0.0 0.6
+level 0.0 -20.0 20.0

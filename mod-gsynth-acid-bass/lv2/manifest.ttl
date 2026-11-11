@@ -1,0 +1,17 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://mod.audio/plugins/gsynth-acid-bass>
+    a lv2:Plugin ;
+    lv2:binary <mod-gsynth-acid-bass.so> ;
+    rdfs:seeAlso <mod-gsynth-acid-bass.ttl> .
+
+<https://mod.audio/plugins/gsynth-acid-bass>
+    rdfs:seeAlso <modgui.ttl> .
+
+<https://mod.audio/plugins/gsynth-acid-bass#preset-acid-saw>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth-acid-bass> ; rdfs:label "Acid Saw" ; rdfs:seeAlso <presets.ttl> .
+
+<https://mod.audio/plugins/gsynth-acid-bass#preset-acid-square>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth-acid-bass> ; rdfs:label "Acid Square" ; rdfs:seeAlso <presets.ttl> .

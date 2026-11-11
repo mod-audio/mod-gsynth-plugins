@@ -1,0 +1,500 @@
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+
+<https://mod.audio/plugins/gsynth-flexible>
+    a lv2:Plugin, lv2:GeneratorPlugin, doap:Project ;
+
+    doap:name "GSynth Flexible" ;
+    doap:license <http://opensource.org/licenses/GPL-3.0> ;
+    doap:maintainer [
+        foaf:name "MOD Audio" ;
+        foaf:homepage <https://mod.audio> ;
+    ] ;
+
+    lv2:project <https://mod.audio/plugins/gsynth-flexible> ;
+    lv2:minorVersion 1 ;
+    lv2:microVersion 0 ;
+
+    mod:brand "MOD" ;
+    mod:label "GSynth Flex" ;
+
+    rdfs:comment """The full GSYNTH guitar synthesizer: every control of MOD's "GSYNTH:Flexible" pedalboard, in one plugin. Play single notes on a guitar or bass; the pitch is tracked and drives up to three oscillators, a filter and an amplifier, and your picking dynamics shape the sound. The original signal is not mixed into the output.
+
+VCO: VCO 2+3 switches two more sawtooth oscillators in, tuned in octaves and semitones above the first. LFO>VCO is vibrato.
+
+VCF: the cutoff follows the note (KEY>VCF), your picking (DYN>VCF) and an LFO (LFO>VCF). Filter > and Filter < sweep it up or down while held, taking Filter Time; they are made for footswitches.
+
+VCA: FIX>VCA gives every note the same level, DYN>VCA follows your picking. Compress Dynamics evens the picking out before it is measured.
+
+Turn Sensitivity down if the synth reacts to string noise, up if soft notes are missed.""" ;
+
+    lv2:optionalFeature lv2:hardRTCapable ;
+
+    lv2:port [
+        a lv2:AudioPort, lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Input" ;
+    ] , [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out_l" ;
+        lv2:name "Output L" ;
+    ] , [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 2 ;
+        lv2:symbol "out_r" ;
+        lv2:name "Output R" ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "octave" ;
+        lv2:name "Master Octave" ;
+        lv2:shortName "Mstr Oct" ;
+        lv2:default -1 ;
+        lv2:minimum -4 ;
+        lv2:maximum 4 ;
+        lv2:portProperty lv2:integer ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "vco1_wave" ;
+        lv2:name "VCO 1 Wave" ;
+        lv2:default 2 ;
+        lv2:minimum 0 ;
+        lv2:maximum 6 ;
+        lv2:portProperty lv2:integer, lv2:enumeration ;
+        lv2:scalePoint [ rdfs:label "Sine" ; rdf:value 0 ] ,
+                       [ rdfs:label "Triangle" ; rdf:value 1 ] ,
+                       [ rdfs:label "Sawtooth" ; rdf:value 2 ] ,
+                       [ rdfs:label "Rectangle" ; rdf:value 3 ] ,
+                       [ rdfs:label "Aux Saw 1" ; rdf:value 4 ] ,
+                       [ rdfs:label "Aux Saw 2" ; rdf:value 5 ] ,
+                       [ rdfs:label "Aux Saw 3" ; rdf:value 6 ] ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "vco23" ;
+        lv2:name "VCO 2+3" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "vco2_oct" ;
+        lv2:name "VCO 2 Octave" ;
+        lv2:shortName "VCO2 Oct" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 6 ;
+        lv2:portProperty lv2:integer ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "vco2_semi" ;
+        lv2:name "VCO 2 Semitones" ;
+        lv2:shortName "VCO2 Semi" ;
+        lv2:default 7 ;
+        lv2:minimum 0 ;
+        lv2:maximum 12 ;
+        lv2:portProperty lv2:integer ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "vco3_oct" ;
+        lv2:name "VCO 3 Octave" ;
+        lv2:shortName "VCO3 Oct" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 6 ;
+        lv2:portProperty lv2:integer ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "vco3_semi" ;
+        lv2:name "VCO 3 Semitones" ;
+        lv2:shortName "VCO3 Semi" ;
+        lv2:default 4 ;
+        lv2:minimum 0 ;
+        lv2:maximum 12 ;
+        lv2:portProperty lv2:integer ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "lfo_vco" ;
+        lv2:name "LFO>VCO On" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "lfo_vco_wave" ;
+        lv2:name "LFO>VCO Wave" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 5 ;
+        lv2:portProperty lv2:integer, lv2:enumeration ;
+        lv2:scalePoint [ rdfs:label "Sine" ; rdf:value 0 ] ,
+                       [ rdfs:label "Triangle" ; rdf:value 1 ] ,
+                       [ rdfs:label "Sawtooth Up" ; rdf:value 2 ] ,
+                       [ rdfs:label "Sawtooth Down" ; rdf:value 3 ] ,
+                       [ rdfs:label "Rectangle" ; rdf:value 4 ] ,
+                       [ rdfs:label "S & H" ; rdf:value 5 ] ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "lfo_vco_freq" ;
+        lv2:name "LFO>VCO Rate" ;
+        lv2:default 6.5 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 10.1 ;
+        units:unit units:hz ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "lfo_vco_depth" ;
+        lv2:name "LFO>VCO" ;
+        lv2:default 0.1 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vco> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "vcf_type" ;
+        lv2:name "VCF Type" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 7 ;
+        lv2:portProperty lv2:integer, lv2:enumeration ;
+        lv2:scalePoint [ rdfs:label "Resonant Lowpass" ; rdf:value 0 ] ,
+                       [ rdfs:label "Lowpass" ; rdf:value 1 ] ,
+                       [ rdfs:label "Highpass" ; rdf:value 2 ] ,
+                       [ rdfs:label "Bandpass I" ; rdf:value 3 ] ,
+                       [ rdfs:label "Bandpass II" ; rdf:value 4 ] ,
+                       [ rdfs:label "Notch" ; rdf:value 5 ] ,
+                       [ rdfs:label "24 dB Lowpass I" ; rdf:value 6 ] ,
+                       [ rdfs:label "24 dB Lowpass II" ; rdf:value 7 ] ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "vcf_freq" ;
+        lv2:name "VCF Freq" ;
+        lv2:default 2.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 16 ;
+        lv2:symbol "vcf_reso" ;
+        lv2:name "VCF Resonance" ;
+        lv2:shortName "VCF Reso" ;
+        lv2:default 0.876 ;
+        lv2:minimum 0.01 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 17 ;
+        lv2:symbol "dyn_vcf" ;
+        lv2:name "DYN>VCF" ;
+        lv2:default 6.45 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 18 ;
+        lv2:symbol "key_vcf" ;
+        lv2:name "KEY>VCF" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 2.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 19 ;
+        lv2:symbol "lfo_vcf_wave" ;
+        lv2:name "LFO>VCF Wave" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 5 ;
+        lv2:portProperty lv2:integer, lv2:enumeration ;
+        lv2:scalePoint [ rdfs:label "Sine" ; rdf:value 0 ] ,
+                       [ rdfs:label "Triangle" ; rdf:value 1 ] ,
+                       [ rdfs:label "Sawtooth Up" ; rdf:value 2 ] ,
+                       [ rdfs:label "Sawtooth Down" ; rdf:value 3 ] ,
+                       [ rdfs:label "Rectangle" ; rdf:value 4 ] ,
+                       [ rdfs:label "S & H" ; rdf:value 5 ] ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 20 ;
+        lv2:symbol "lfo_vcf_freq" ;
+        lv2:name "LFO>VCF Rate" ;
+        lv2:default 0.8 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 10.1 ;
+        units:unit units:hz ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 21 ;
+        lv2:symbol "lfo_vcf_depth" ;
+        lv2:name "LFO>VCF" ;
+        lv2:default 0.075 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 3.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 22 ;
+        lv2:symbol "sweep_up" ;
+        lv2:name "Filter >" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 23 ;
+        lv2:symbol "sweep_down" ;
+        lv2:name "Filter <" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 24 ;
+        lv2:symbol "sweep_time" ;
+        lv2:name "Filter Time" ;
+        lv2:shortName "Flt Time" ;
+        lv2:default 595.04 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 1000.0 ;
+        lv2:portProperty pprop:logarithmic ;
+        units:unit units:ms ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vcf> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 25 ;
+        lv2:symbol "fix_vca" ;
+        lv2:name "FIX>VCA" ;
+        lv2:default 1.455 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 3.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vca> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 26 ;
+        lv2:symbol "dyn_vca" ;
+        lv2:name "DYN>VCA" ;
+        lv2:default 1.0 ;
+        lv2:minimum -2.0 ;
+        lv2:maximum 4.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vca> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 27 ;
+        lv2:symbol "comp_dyn" ;
+        lv2:name "Compress Dynamics" ;
+        lv2:shortName "Cmp Dyn" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vca> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 28 ;
+        lv2:symbol "sensitivity" ;
+        lv2:name "Sensitivity" ;
+        lv2:default 50.05 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vca> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 29 ;
+        lv2:symbol "confidence" ;
+        lv2:name "Confidence Threshold" ;
+        lv2:shortName "Confidence" ;
+        lv2:default 12.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vca> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 30 ;
+        lv2:symbol "tolerance" ;
+        lv2:name "Tolerance" ;
+        lv2:default 10.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vca> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 31 ;
+        lv2:symbol "level" ;
+        lv2:name "Level" ;
+        lv2:default 0.0 ;
+        lv2:minimum -20.0 ;
+        lv2:maximum 20.0 ;
+        units:unit units:db ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-vca> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 32 ;
+        lv2:symbol "delay" ;
+        lv2:name "Delay" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 33 ;
+        lv2:symbol "delay_time" ;
+        lv2:name "Delay Time" ;
+        lv2:shortName "Dly Time" ;
+        lv2:default 485.5 ;
+        lv2:minimum 20.0 ;
+        lv2:maximum 1000.0 ;
+        units:unit units:ms ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 34 ;
+        lv2:symbol "delay_repeats" ;
+        lv2:name "Delay Feedback" ;
+        lv2:shortName "Dly Fdbk" ;
+        lv2:default 48.4 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 110.0 ;
+        units:unit units:pc ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 35 ;
+        lv2:symbol "delay_mix" ;
+        lv2:name "Delay Mix" ;
+        lv2:shortName "Dly Mix" ;
+        lv2:default 30.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 36 ;
+        lv2:symbol "reverb" ;
+        lv2:name "Reverb" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 37 ;
+        lv2:symbol "reverb_decay" ;
+        lv2:name "Reverb Decay" ;
+        lv2:shortName "Rev Decay" ;
+        lv2:default 0.655 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 38 ;
+        lv2:symbol "reverb_mix" ;
+        lv2:name "Reverb Mix" ;
+        lv2:shortName "Rev Mix" ;
+        lv2:default 0.195 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 39 ;
+        lv2:symbol "reverb_damping" ;
+        lv2:name "Reverb Damping" ;
+        lv2:shortName "Rev Damp" ;
+        lv2:default 0.375 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 40 ;
+        lv2:symbol "reverb_bandwidth" ;
+        lv2:name "Reverb Bandwidth" ;
+        lv2:shortName "Rev LPF" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-flexible#group-fx> ;
+    ] , [
+        a lv2:ControlPort, lv2:OutputPort ;
+        lv2:index 41 ;
+        lv2:symbol "detected_pitch" ;
+        lv2:name "Detected Pitch" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 22050.0 ;
+        units:unit units:hz ;
+    ] .
+
+<https://mod.audio/plugins/gsynth-flexible#group-vco>
+    a pg:InputGroup ;
+    lv2:symbol "vco" ;
+    lv2:name "VCO" ;
+    lv2:index 0 .
+
+<https://mod.audio/plugins/gsynth-flexible#group-vcf>
+    a pg:InputGroup ;
+    lv2:symbol "vcf" ;
+    lv2:name "VCF" ;
+    lv2:index 1 .
+
+<https://mod.audio/plugins/gsynth-flexible#group-vca>
+    a pg:InputGroup ;
+    lv2:symbol "vca" ;
+    lv2:name "VCA / Dynamics" ;
+    lv2:index 2 .
+
+<https://mod.audio/plugins/gsynth-flexible#group-fx>
+    a pg:InputGroup ;
+    lv2:symbol "fx" ;
+    lv2:name "FX" ;
+    lv2:index 3 .

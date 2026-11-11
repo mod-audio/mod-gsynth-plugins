@@ -1,0 +1,203 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-octave-down>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Octave Down" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.8 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 3.6 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 0.8 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-funky-drop>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Funky Drop" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.25 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 2.8 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.2 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value 0.8 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value -2.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-reso-funk>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Reso Funk" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.2 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 3.0 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.85 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value 0.7 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value -4.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-wide-open>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Wide Open" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.7 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 6.5 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.2 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.4 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 0.8 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-chorus-octave>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Chorus Octave" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 5.0 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.25 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.25 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.7 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-dark-drive>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Dark Drive" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.4 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 2.5 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.05 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value 0.4 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.15 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 0.9 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-industrial>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Industrial" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 5.0 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.45 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.15 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.1 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value 0.9 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-bassline#preset-sidechain>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-bassline> ;
+    rdfs:label "Sidechain" ;
+    lv2:port [ lv2:symbol "shape" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "voice" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "mix" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sub_mix" ; pset:value 0.4 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 6.0 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "envelope" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "mod" ; pset:value 0.4 ] ;
+    lv2:port [ lv2:symbol "voice_mix" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "noise_mix" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "env_amount" ; pset:value -0.6 ] ;
+    lv2:port [ lv2:symbol "glide" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "amp_attack" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "mod_blend" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "compression" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.0 ] ;
+    lv2:port [ lv2:symbol "tracking" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "dry_thru_fx" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] .

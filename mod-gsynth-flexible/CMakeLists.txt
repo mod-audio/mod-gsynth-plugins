@@ -1,0 +1,65 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(mod-gsynth-flexible VERSION 0.1.0 LANGUAGES C CXX)
+
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+set(LIB_INSTALL_DIR "lib" CACHE STRING "Library directory, relative to the install prefix")
+option(BUILD_TEST_HOST "Build the offline test host" OFF)
+
+find_package(PkgConfig)
+if(PKG_CONFIG_FOUND)
+    pkg_check_modules(LV2 lv2)
+    pkg_check_modules(FFTW3F fftw3f)
+endif()
+if(NOT LV2_INCLUDE_DIR)
+    find_path(LV2_INCLUDE_DIR lv2/core/lv2.h HINTS ${LV2_INCLUDE_DIRS})
+endif()
+if(NOT LV2_INCLUDE_DIR)
+    message(FATAL_ERROR "LV2 headers not found; set LV2_INCLUDE_DIR")
+endif()
+
+if(NOT FFTW3F_INCLUDE_DIR)
+    find_path(FFTW3F_INCLUDE_DIR fftw3.h HINTS ${FFTW3F_INCLUDE_DIRS})
+endif()
+if(NOT FFTW3F_LIBRARY)
+    find_library(FFTW3F_LIBRARY fftw3f HINTS ${FFTW3F_LIBRARY_DIRS})
+endif()
+if(NOT FFTW3F_INCLUDE_DIR OR NOT FFTW3F_LIBRARY)
+    message(FATAL_ERROR "FFTW (fftw3f) not found; set FFTW3F_INCLUDE_DIR and FFTW3F_LIBRARY")
+endif()
+
+# the part of aubio that yinfast pitch detection needs, see deps/aubio/README.md
+set(AUBIO_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/aubio")
+add_library(aubio-yinfast STATIC
+    "${AUBIO_DIR}/src/cvec.c" "${AUBIO_DIR}/src/fvec.c" "${AUBIO_DIR}/src/lvec.c" "${AUBIO_DIR}/src/mathutils.c"
+    "${AUBIO_DIR}/src/pitch/pitchyinfast.c" "${AUBIO_DIR}/src/spectral/fft.c" "${AUBIO_DIR}/src/utils/log.c")
+target_compile_definitions(aubio-yinfast PRIVATE HAVE_CONFIG_H)
+target_include_directories(aubio-yinfast PUBLIC "${AUBIO_DIR}/src" PRIVATE "${AUBIO_DIR}" "${FFTW3F_INCLUDE_DIR}")
+set_target_properties(aubio-yinfast PROPERTIES C_VISIBILITY_PRESET hidden)
+
+add_library(mod-gsynth-flexible MODULE src/lv2_plugin.cpp)
+set_target_properties(mod-gsynth-flexible PROPERTIES PREFIX "" CXX_VISIBILITY_PRESET hidden VISIBILITY_INLINES_HIDDEN ON)
+target_include_directories(mod-gsynth-flexible PRIVATE src "${LV2_INCLUDE_DIR}")
+target_compile_options(mod-gsynth-flexible PRIVATE -Wall -Wextra -fno-math-errno)
+target_link_libraries(mod-gsynth-flexible PRIVATE aubio-yinfast "${FFTW3F_LIBRARY}" pthread m)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    target_link_options(mod-gsynth-flexible PRIVATE "-Wl,--no-undefined" "-Wl,--exclude-libs,ALL")
+endif()
+
+set(BUNDLE_DIR "${CMAKE_BINARY_DIR}/mod-gsynth-flexible.lv2")
+file(COPY lv2/ DESTINATION "${BUNDLE_DIR}")
+add_custom_command(TARGET mod-gsynth-flexible POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:mod-gsynth-flexible>" "${BUNDLE_DIR}/")
+install(DIRECTORY "${BUNDLE_DIR}" DESTINATION "${LIB_INSTALL_DIR}/lv2")
+
+if(BUILD_TEST_HOST)
+    add_executable(test_host tools/test_host.cpp)
+    target_include_directories(test_host PRIVATE "${LV2_INCLUDE_DIR}")
+    target_link_libraries(test_host PRIVATE ${CMAKE_DL_LIBS} m)
+endif()

@@ -1,0 +1,275 @@
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+
+<https://mod.audio/plugins/gsynth-bassline>
+    a lv2:Plugin, lv2:GeneratorPlugin, doap:Project ;
+
+    doap:name "GSynth Bassline" ;
+    doap:license <http://opensource.org/licenses/GPL-3.0> ;
+    doap:maintainer [
+        foaf:name "MOD Audio" ;
+        foaf:homepage <https://mod.audio> ;
+    ] ;
+
+    lv2:project <https://mod.audio/plugins/gsynth-bassline> ;
+    lv2:minorVersion 1 ;
+    lv2:microVersion 0 ;
+
+    mod:brand "MOD" ;
+    mod:label "Bassline" ;
+
+    rdfs:comment """A monophonic bass synthesizer you play from a bass or a guitar. Play single notes: the pitch is tracked and drives a synth voice with a sub octave, a 24 dB resonant low-pass filter with its own envelope, glide, chorus and filter modulation. Mix blends your own sound back in.
+
+Synth: Shape picks triangle, sawtooth or square. Voice adds two more oscillators an octave and an octave plus a fifth above. Sub Mix goes from the main oscillator to the one an octave below. Envelope sets how fast the filter envelope is, plucky to sweeping; fully down switches it off. Mod adds modulation.
+
+Voice: how loud the added voices and the noise are, how far and which way the envelope moves the filter (below the middle it closes it, for a ducking effect), Glide, the amplifier's fade-in, and whether Mod is chorus or a filter wobble.
+
+Setup: Compression goes from a level that follows your playing to every note the same. Set Tracking to your instrument: 5-string bass tracks down to a low B, 4-string bass is quicker and tracks down to a low E, Guitar is quicker still. Turn Sensitivity down if the synth reacts to string noise, up if soft notes are missed. Dry Thru FX sends your own sound through the filter, amplifier and chorus with the synth.""" ;
+
+    lv2:optionalFeature lv2:hardRTCapable ;
+
+    lv2:port [
+        a lv2:AudioPort, lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "Input" ;
+    ] , [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 1 ;
+        lv2:symbol "out_l" ;
+        lv2:name "Output L" ;
+    ] , [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 2 ;
+        lv2:symbol "out_r" ;
+        lv2:name "Output R" ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 3 ;
+        lv2:symbol "shape" ;
+        lv2:name "Shape" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:integer, lv2:enumeration ;
+        lv2:scalePoint [ rdfs:label "Triangle" ; rdf:value 0 ] ,
+                       [ rdfs:label "Sawtooth" ; rdf:value 1 ] ,
+                       [ rdfs:label "Square" ; rdf:value 2 ] ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 4 ;
+        lv2:symbol "voice" ;
+        lv2:name "Voice" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 5 ;
+        lv2:symbol "mix" ;
+        lv2:name "Mix" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 6 ;
+        lv2:symbol "sub_mix" ;
+        lv2:name "Sub Mix" ;
+        lv2:default 0.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 7 ;
+        lv2:symbol "cutoff" ;
+        lv2:name "Cutoff" ;
+        lv2:default 4.0 ;
+        lv2:minimum 0.5 ;
+        lv2:maximum 9.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 8 ;
+        lv2:symbol "resonance" ;
+        lv2:name "Resonance" ;
+        lv2:default 0.4 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 9 ;
+        lv2:symbol "envelope" ;
+        lv2:name "Envelope" ;
+        lv2:default 0.35 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 10 ;
+        lv2:symbol "mod" ;
+        lv2:name "Mod" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-synth> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 11 ;
+        lv2:symbol "voice_mix" ;
+        lv2:name "Voice Mix" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-voice> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 12 ;
+        lv2:symbol "noise_mix" ;
+        lv2:name "Noise Mix" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-voice> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 13 ;
+        lv2:symbol "env_amount" ;
+        lv2:name "Filter Env Amount" ;
+        lv2:shortName "Env Amount" ;
+        lv2:default 0.6 ;
+        lv2:minimum -1.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-voice> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 14 ;
+        lv2:symbol "glide" ;
+        lv2:name "Glide" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-voice> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 15 ;
+        lv2:symbol "amp_attack" ;
+        lv2:name "Amp Envelope" ;
+        lv2:shortName "Amp Env" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-voice> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 16 ;
+        lv2:symbol "mod_blend" ;
+        lv2:name "Mod Blend" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-voice> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 17 ;
+        lv2:symbol "compression" ;
+        lv2:name "Compression" ;
+        lv2:default 0.7 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-setup> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 18 ;
+        lv2:symbol "gain" ;
+        lv2:name "Output Gain" ;
+        lv2:default 0.0 ;
+        lv2:minimum -18.0 ;
+        lv2:maximum 18.0 ;
+        units:unit units:db ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-setup> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 19 ;
+        lv2:symbol "sensitivity" ;
+        lv2:name "Sensitivity" ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-setup> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 20 ;
+        lv2:symbol "tracking" ;
+        lv2:name "Tracking" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:integer, lv2:enumeration ;
+        lv2:scalePoint [ rdfs:label "5-String Bass" ; rdf:value 0 ] ,
+                       [ rdfs:label "4-String Bass" ; rdf:value 1 ] ,
+                       [ rdfs:label "Guitar" ; rdf:value 2 ] ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-setup> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 21 ;
+        lv2:symbol "dry_thru_fx" ;
+        lv2:name "Dry Thru FX" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer, lv2:toggled ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-setup> ;
+    ] , [
+        a lv2:ControlPort, lv2:InputPort ;
+        lv2:index 22 ;
+        lv2:symbol "octave" ;
+        lv2:name "Octave" ;
+        lv2:default 0 ;
+        lv2:minimum -2 ;
+        lv2:maximum 2 ;
+        lv2:portProperty lv2:integer ;
+        pg:group <https://mod.audio/plugins/gsynth-bassline#group-setup> ;
+    ] , [
+        a lv2:ControlPort, lv2:OutputPort ;
+        lv2:index 23 ;
+        lv2:symbol "detected_pitch" ;
+        lv2:name "Detected Pitch" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 22050.0 ;
+        units:unit units:hz ;
+    ] .
+
+<https://mod.audio/plugins/gsynth-bassline#group-synth>
+    a pg:InputGroup ;
+    lv2:symbol "synth" ;
+    lv2:name "Synth" ;
+    lv2:index 0 .
+
+<https://mod.audio/plugins/gsynth-bassline#group-voice>
+    a pg:InputGroup ;
+    lv2:symbol "voice" ;
+    lv2:name "Voice" ;
+    lv2:index 1 .
+
+<https://mod.audio/plugins/gsynth-bassline#group-setup>
+    a pg:InputGroup ;
+    lv2:symbol "setup" ;
+    lv2:name "Setup" ;
+    lv2:index 2 .

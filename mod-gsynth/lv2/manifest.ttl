@@ -1,0 +1,23 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://mod.audio/plugins/gsynth>
+    a lv2:Plugin ;
+    lv2:binary <mod-gsynth.so> ;
+    rdfs:seeAlso <mod-gsynth.ttl> .
+
+<https://mod.audio/plugins/gsynth>
+    rdfs:seeAlso <modgui.ttl> .
+
+<https://mod.audio/plugins/gsynth#preset-init>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth> ; rdfs:label "Init" ; rdfs:seeAlso <presets.ttl> .
+
+<https://mod.audio/plugins/gsynth#preset-sub-bass>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth> ; rdfs:label "Sub Bass" ; rdfs:seeAlso <presets.ttl> .
+
+<https://mod.audio/plugins/gsynth#preset-square-lead>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth> ; rdfs:label "Square Lead" ; rdfs:seeAlso <presets.ttl> .
+
+<https://mod.audio/plugins/gsynth#preset-ambient-saw>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth> ; rdfs:label "Ambient Saw" ; rdfs:seeAlso <presets.ttl> .

@@ -1,0 +1,33 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://mod.audio/plugins/gsynth-minor-dub#preset-minor-dub>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-minor-dub> ;
+    rdfs:label "Minor Dub" ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 2.1 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.376 ] ;
+    lv2:port [ lv2:symbol "echo" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "space" ; pset:value 0.4 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-minor-dub#preset-deep-dub>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-minor-dub> ;
+    rdfs:label "Deep Dub" ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 1.3 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.55 ] ;
+    lv2:port [ lv2:symbol "echo" ; pset:value 0.85 ] ;
+    lv2:port [ lv2:symbol "space" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value -1.0 ] .
+
+<https://mod.audio/plugins/gsynth-minor-dub#preset-wide-space>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-minor-dub> ;
+    rdfs:label "Wide Space" ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 3.2 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.2 ] ;
+    lv2:port [ lv2:symbol "echo" ; pset:value 0.3 ] ;
+    lv2:port [ lv2:symbol "space" ; pset:value 0.9 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 1.0 ] .

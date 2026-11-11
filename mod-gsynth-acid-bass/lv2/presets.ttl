@@ -1,0 +1,27 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://mod.audio/plugins/gsynth-acid-bass#preset-acid-saw>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-acid-bass> ;
+    rdfs:label "Acid Saw" ;
+    lv2:port [ lv2:symbol "wave" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.876 ] ;
+    lv2:port [ lv2:symbol "accent" ; pset:value 6.45 ] ;
+    lv2:port [ lv2:symbol "sweep" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 0.195 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth-acid-bass#preset-acid-square>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-acid-bass> ;
+    rdfs:label "Acid Square" ;
+    lv2:port [ lv2:symbol "wave" ; pset:value 3.0 ] ;
+    lv2:port [ lv2:symbol "cutoff" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "resonance" ; pset:value 0.876 ] ;
+    lv2:port [ lv2:symbol "accent" ; pset:value 6.45 ] ;
+    lv2:port [ lv2:symbol "sweep" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 0.195 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 0.0 ] .

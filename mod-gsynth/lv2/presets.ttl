@@ -1,0 +1,71 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://mod.audio/plugins/gsynth#preset-init>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth> ;
+    rdfs:label "Init" ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.04999923706055 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value -1.0 ] ;
+    lv2:port [ lv2:symbol "waveform" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "filter_freq" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "filter_reso" ; pset:value 0.871 ] ;
+    lv2:port [ lv2:symbol "filter_depth" ; pset:value 6.5 ] ;
+    lv2:port [ lv2:symbol "sweep" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_time" ; pset:value 710.173584 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "reverb_mix" ; pset:value 0.19475446428571436 ] ;
+    lv2:port [ lv2:symbol "reverb_decay" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth#preset-sub-bass>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth> ;
+    rdfs:label "Sub Bass" ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.04999923706055 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value -2.0 ] ;
+    lv2:port [ lv2:symbol "waveform" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "filter_freq" ; pset:value 1.5 ] ;
+    lv2:port [ lv2:symbol "filter_reso" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "filter_depth" ; pset:value 4.0 ] ;
+    lv2:port [ lv2:symbol "sweep" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_time" ; pset:value 710.173584 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "reverb_mix" ; pset:value 0.19475446428571436 ] ;
+    lv2:port [ lv2:symbol "reverb_decay" ; pset:value 0.5 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth#preset-square-lead>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth> ;
+    rdfs:label "Square Lead" ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.04999923706055 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "waveform" ; pset:value 3.0 ] ;
+    lv2:port [ lv2:symbol "filter_freq" ; pset:value 3.0 ] ;
+    lv2:port [ lv2:symbol "filter_reso" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "filter_depth" ; pset:value 5.0 ] ;
+    lv2:port [ lv2:symbol "sweep" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_time" ; pset:value 710.173584 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "reverb_mix" ; pset:value 0.25 ] ;
+    lv2:port [ lv2:symbol "reverb_decay" ; pset:value 0.6 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 0.0 ] .
+
+<https://mod.audio/plugins/gsynth#preset-ambient-saw>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth> ;
+    rdfs:label "Ambient Saw" ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.04999923706055 ] ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "waveform" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "filter_freq" ; pset:value 1.5 ] ;
+    lv2:port [ lv2:symbol "filter_reso" ; pset:value 0.8 ] ;
+    lv2:port [ lv2:symbol "filter_depth" ; pset:value 3.0 ] ;
+    lv2:port [ lv2:symbol "sweep" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_time" ; pset:value 710.173584 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "reverb_mix" ; pset:value 0.45 ] ;
+    lv2:port [ lv2:symbol "reverb_decay" ; pset:value 0.85 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 0.0 ] .
