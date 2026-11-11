@@ -16,6 +16,7 @@
 .ph-mod-gsynth-bassline .ph-group { position: absolute; height: 26px; line-height: 26px; font-size: 11px; letter-spacing: 1px;
     text-transform: uppercase; color: rgb(150, 156, 165); border-bottom: 1px dashed #4a4f57; }
 .ph-mod-gsynth-bassline .ph-cell { position: absolute; height: 112px; text-align: center; z-index: 30; }
+.ph-mod-gsynth-bassline .ph-cell:hover { z-index: 90 !important; }
 .ph-mod-gsynth-bassline .ph-label { font-size: 11px; height: 28px; line-height: 13px; padding: 4px 4px 0; overflow: hidden; color: rgb(225, 228, 232); }
 .ph-mod-gsynth-bassline .ph-knob { width: 50px; height: 50px; margin: 4px auto 0; background-image: url(/resources/knob.png{{{ns}}});
     background-size: 50px 50px; background-repeat: no-repeat; cursor: pointer; }
