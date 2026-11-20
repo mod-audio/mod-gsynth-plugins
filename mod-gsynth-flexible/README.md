@@ -55,7 +55,7 @@ LV2 plugin, `https://mod.audio/plugins/gsynth-flexible`. One audio input, stereo
 | Reverb Damping | float | 0.0..1.0 | 0.375 |
 | Reverb Bandwidth | float | 0.0..1.0 | 1.0 |
 
-Presets: Acid Saw Bass, Acid Square Bass, +4 and +5, Minor Dub, Octave Lead, Vibro Lead.
+Presets: Acid Saw Bass, Acid Square Bass, +4 and +5, Minor Dub, Deep Dub, Wide Space, Octave Lead, Vibro Lead.
 
 ## Where it comes from
 

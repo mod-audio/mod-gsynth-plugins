@@ -1,22 +1,21 @@
-<div class="mod-pedal ph-mod-gsynth">
+<div class="mod-pedal gsynth{{{cns}}} gs-mod-gsynth">
     <div mod-role="drag-handle" class="mod-drag-handle"></div>
-    <div class="ph-head"><div class="ph-name">GSynth</div><div class="ph-tag">PLACEHOLDER UI</div></div>
-    <div class="ph-group" style="left:20px;top:64px;width:460px">VCA / Dynamics</div>
-    <div class="ph-cell mod-control-group" style="left:20px;top:90px;width:92px;z-index:59">
-        <div class="ph-label">Sensitivity</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="sensitivity" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="sensitivity"></div>
+    <div class="gs-head">
+        <div class="gs-name"><span class="gs-word">GSYNTH</span></div>
+        <div class="gs-brand"></div>
     </div>
-    <div class="ph-group" style="left:20px;top:202px;width:460px">VCO</div>
-    <div class="ph-cell mod-control-group" style="left:20px;top:228px;width:92px;z-index:57">
-        <div class="ph-label">Octave</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="octave" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="octave"></div>
+    <div class="gs-screen" style="left:18px;top:74px;width:196px;height:210px">
+        <div class="gs-screen-title">PRESETS</div>
+        <select class="gs-presets" mod-role="presets" size="8" onclick="var s=this;setTimeout(function(){s.selectedIndex=-1},0)">
+            {{#effect.presets}}
+            <option mod-role="enumeration-option" mod-uri="{{uri}}" value="{{uri}}">{{label}}</option>
+            {{/effect.presets}}
+        </select>
     </div>
-    <div class="ph-cell mod-control-group" style="left:112px;top:228px;width:184px;z-index:57">
-        <div class="ph-label">Waveform</div>
-        <div class="ph-select mod-enumerated" mod-role="input-control-port" mod-port-symbol="waveform" mod-widget="custom-select">
-            <div class="ph-select-value" mod-role="input-control-value" mod-port-symbol="waveform"></div>
+    <div class="gs-cell mod-control-group" style="left:234px;top:74px;z-index:60">
+        <div class="gs-label">Waveform</div>
+        <div class="gs-select mod-enumerated" mod-role="input-control-port" mod-port-symbol="waveform" mod-widget="custom-select">
+            <div class="gs-select-value" mod-role="input-control-value" mod-port-symbol="waveform"></div>
             <div class="mod-enumerated-list">
                 <div mod-role="enumeration-option" mod-port-value="0">Sine</div>
                 <div mod-role="enumeration-option" mod-port-value="1">Triangle</div>
@@ -28,54 +27,38 @@
             </div>
         </div>
     </div>
-    <div class="ph-group" style="left:20px;top:340px;width:460px">VCF</div>
-    <div class="ph-cell mod-control-group" style="left:20px;top:366px;width:92px;z-index:56">
-        <div class="ph-label">Filter Freq</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_freq" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="filter_freq"></div>
+    <div class="gs-cell mod-control-group" style="left:322px;top:74px;z-index:60">
+        <div class="gs-label">Octave</div>
+        <div class="gs-knob gs-knob-bi mod-knob-image" mod-role="input-control-port" mod-port-symbol="octave" mod-widget="film"></div>
+        <div class="gs-value" mod-role="input-control-value" mod-port-symbol="octave"></div>
     </div>
-    <div class="ph-cell mod-control-group" style="left:112px;top:366px;width:92px;z-index:56">
-        <div class="ph-label">Filter Resonance</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_reso" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="filter_reso"></div>
+    <div class="gs-cell mod-control-group" style="left:410px;top:74px;z-index:60">
+        <div class="gs-label">Flt Freq</div>
+        <div class="gs-knob gs-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_freq" mod-widget="film"></div>
+        <div class="gs-value" mod-role="input-control-value" mod-port-symbol="filter_freq"></div>
     </div>
-    <div class="ph-cell mod-control-group" style="left:204px;top:366px;width:92px;z-index:56">
-        <div class="ph-label">Filter Depth</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_depth" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="filter_depth"></div>
+    <div class="gs-cell mod-control-group" style="left:498px;top:74px;z-index:60">
+        <div class="gs-label">Flt Reso</div>
+        <div class="gs-knob gs-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_reso" mod-widget="film"></div>
+        <div class="gs-value" mod-role="input-control-value" mod-port-symbol="filter_reso"></div>
     </div>
-    <div class="ph-cell mod-control-group" style="left:296px;top:366px;width:92px;z-index:56">
-        <div class="ph-label">Sweep</div>
-        <div class="ph-switch" mod-role="input-control-port" mod-port-symbol="sweep" mod-widget="switch"><div class="ph-switch-dot"></div></div>
+    <div class="gs-cell mod-control-group" style="left:234px;top:186px;z-index:50">
+        <div class="gs-label">Flt Depth</div>
+        <div class="gs-knob gs-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_depth" mod-widget="film"></div>
+        <div class="gs-value" mod-role="input-control-value" mod-port-symbol="filter_depth"></div>
     </div>
-    <div class="ph-cell mod-control-group" style="left:388px;top:366px;width:92px;z-index:56">
-        <div class="ph-label">Sweep Time</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="sweep_time" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="sweep_time"></div>
+    <div class="gs-cell mod-control-group" style="left:322px;top:186px;z-index:50">
+        <div class="gs-label">Rev Mix</div>
+        <div class="gs-knob gs-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="reverb_mix" mod-widget="film"></div>
+        <div class="gs-value" mod-role="input-control-value" mod-port-symbol="reverb_mix"></div>
     </div>
-    <div class="ph-group" style="left:20px;top:478px;width:460px">FX</div>
-    <div class="ph-cell mod-control-group" style="left:20px;top:504px;width:92px;z-index:54">
-        <div class="ph-label">Reverb</div>
-        <div class="ph-switch" mod-role="input-control-port" mod-port-symbol="reverb" mod-widget="switch"><div class="ph-switch-dot"></div></div>
+    <div class="gs-cell mod-control-group" style="left:410px;top:186px;z-index:50">
+        <div class="gs-label">Level</div>
+        <div class="gs-knob gs-knob-bi mod-knob-image" mod-role="input-control-port" mod-port-symbol="level" mod-widget="film"></div>
+        <div class="gs-value" mod-role="input-control-value" mod-port-symbol="level"></div>
     </div>
-    <div class="ph-cell mod-control-group" style="left:112px;top:504px;width:92px;z-index:54">
-        <div class="ph-label">Reverb Mix</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="reverb_mix" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="reverb_mix"></div>
-    </div>
-    <div class="ph-cell mod-control-group" style="left:204px;top:504px;width:92px;z-index:54">
-        <div class="ph-label">Reverb Decay</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="reverb_decay" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="reverb_decay"></div>
-    </div>
-    <div class="ph-group" style="left:20px;top:616px;width:460px">VCA / Dynamics</div>
-    <div class="ph-cell mod-control-group" style="left:20px;top:642px;width:92px;z-index:53">
-        <div class="ph-label">Level</div>
-        <div class="mod-knob"><div class="ph-knob mod-knob-image" mod-role="input-control-port" mod-port-symbol="level" mod-widget="film" mod-widget-rotation="270"></div></div>
-        <div class="ph-value" mod-role="input-control-value" mod-port-symbol="level"></div>
-    </div>
-    <div class="ph-light mod-light on" mod-role="bypass-light"></div>
-    <div class="ph-footswitch mod-footswitch" mod-role="bypass"></div>
+    <div class="gs-light mod-light on" mod-role="bypass-light"></div>
+    <div class="gs-footswitch mod-footswitch" mod-role="bypass"></div>
     <div class="mod-pedal-input">
         {{#effect.ports.audio.input}}
         <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">

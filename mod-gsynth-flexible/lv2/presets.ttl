@@ -174,6 +174,92 @@
     lv2:port [ lv2:symbol "reverb_damping" ; pset:value 0.375 ] ;
     lv2:port [ lv2:symbol "reverb_bandwidth" ; pset:value 1.0 ] .
 
+<https://mod.audio/plugins/gsynth-flexible#preset-deep-dub>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-flexible> ;
+    rdfs:label "Deep Dub" ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vco1_wave" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "vco23" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "vco2_oct" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vco2_semi" ; pset:value 3.0 ] ;
+    lv2:port [ lv2:symbol "vco3_oct" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vco3_semi" ; pset:value 7.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vco" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vco_wave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vco_freq" ; pset:value 6.5 ] ;
+    lv2:port [ lv2:symbol "lfo_vco_depth" ; pset:value 0.1 ] ;
+    lv2:port [ lv2:symbol "vcf_type" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vcf_freq" ; pset:value 1.3 ] ;
+    lv2:port [ lv2:symbol "vcf_reso" ; pset:value 0.55 ] ;
+    lv2:port [ lv2:symbol "dyn_vcf" ; pset:value 9.5 ] ;
+    lv2:port [ lv2:symbol "key_vcf" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vcf_wave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vcf_freq" ; pset:value 0.8 ] ;
+    lv2:port [ lv2:symbol "lfo_vcf_depth" ; pset:value 0.075 ] ;
+    lv2:port [ lv2:symbol "sweep_up" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_down" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_time" ; pset:value 595.04 ] ;
+    lv2:port [ lv2:symbol "fix_vca" ; pset:value 1.455 ] ;
+    lv2:port [ lv2:symbol "dyn_vca" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "comp_dyn" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.05 ] ;
+    lv2:port [ lv2:symbol "confidence" ; pset:value 12.5 ] ;
+    lv2:port [ lv2:symbol "tolerance" ; pset:value 10.0 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value -1.0 ] ;
+    lv2:port [ lv2:symbol "delay" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "delay_time" ; pset:value 387.5 ] ;
+    lv2:port [ lv2:symbol "delay_repeats" ; pset:value 68.28 ] ;
+    lv2:port [ lv2:symbol "delay_mix" ; pset:value 51.0 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "reverb_decay" ; pset:value 0.5975 ] ;
+    lv2:port [ lv2:symbol "reverb_mix" ; pset:value 0.14625001 ] ;
+    lv2:port [ lv2:symbol "reverb_damping" ; pset:value 0.375 ] ;
+    lv2:port [ lv2:symbol "reverb_bandwidth" ; pset:value 1.0 ] .
+
+<https://mod.audio/plugins/gsynth-flexible#preset-wide-space>
+    a pset:Preset ;
+    lv2:appliesTo <https://mod.audio/plugins/gsynth-flexible> ;
+    rdfs:label "Wide Space" ;
+    lv2:port [ lv2:symbol "octave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vco1_wave" ; pset:value 2.0 ] ;
+    lv2:port [ lv2:symbol "vco23" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "vco2_oct" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vco2_semi" ; pset:value 3.0 ] ;
+    lv2:port [ lv2:symbol "vco3_oct" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vco3_semi" ; pset:value 7.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vco" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vco_wave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vco_freq" ; pset:value 6.5 ] ;
+    lv2:port [ lv2:symbol "lfo_vco_depth" ; pset:value 0.1 ] ;
+    lv2:port [ lv2:symbol "vcf_type" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "vcf_freq" ; pset:value 3.2 ] ;
+    lv2:port [ lv2:symbol "vcf_reso" ; pset:value 0.2 ] ;
+    lv2:port [ lv2:symbol "dyn_vcf" ; pset:value 9.5 ] ;
+    lv2:port [ lv2:symbol "key_vcf" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vcf_wave" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "lfo_vcf_freq" ; pset:value 0.8 ] ;
+    lv2:port [ lv2:symbol "lfo_vcf_depth" ; pset:value 0.075 ] ;
+    lv2:port [ lv2:symbol "sweep_up" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_down" ; pset:value 0.0 ] ;
+    lv2:port [ lv2:symbol "sweep_time" ; pset:value 595.04 ] ;
+    lv2:port [ lv2:symbol "fix_vca" ; pset:value 1.455 ] ;
+    lv2:port [ lv2:symbol "dyn_vca" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "comp_dyn" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "sensitivity" ; pset:value 50.05 ] ;
+    lv2:port [ lv2:symbol "confidence" ; pset:value 12.5 ] ;
+    lv2:port [ lv2:symbol "tolerance" ; pset:value 10.0 ] ;
+    lv2:port [ lv2:symbol "level" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "delay" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "delay_time" ; pset:value 387.5 ] ;
+    lv2:port [ lv2:symbol "delay_repeats" ; pset:value 37.04 ] ;
+    lv2:port [ lv2:symbol "delay_mix" ; pset:value 18.0 ] ;
+    lv2:port [ lv2:symbol "reverb" ; pset:value 1.0 ] ;
+    lv2:port [ lv2:symbol "reverb_decay" ; pset:value 0.9425 ] ;
+    lv2:port [ lv2:symbol "reverb_mix" ; pset:value 0.43875 ] ;
+    lv2:port [ lv2:symbol "reverb_damping" ; pset:value 0.375 ] ;
+    lv2:port [ lv2:symbol "reverb_bandwidth" ; pset:value 1.0 ] .
+
 <https://mod.audio/plugins/gsynth-flexible#preset-octave-lead>
     a pset:Preset ;
     lv2:appliesTo <https://mod.audio/plugins/gsynth-flexible> ;

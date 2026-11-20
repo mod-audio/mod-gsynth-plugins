@@ -22,6 +22,12 @@
 <https://mod.audio/plugins/gsynth-flexible#preset-minor-dub>
     a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth-flexible> ; rdfs:label "Minor Dub" ; rdfs:seeAlso <presets.ttl> .
 
+<https://mod.audio/plugins/gsynth-flexible#preset-deep-dub>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth-flexible> ; rdfs:label "Deep Dub" ; rdfs:seeAlso <presets.ttl> .
+
+<https://mod.audio/plugins/gsynth-flexible#preset-wide-space>
+    a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth-flexible> ; rdfs:label "Wide Space" ; rdfs:seeAlso <presets.ttl> .
+
 <https://mod.audio/plugins/gsynth-flexible#preset-octave-lead>
     a pset:Preset ; lv2:appliesTo <https://mod.audio/plugins/gsynth-flexible> ; rdfs:label "Octave Lead" ; rdfs:seeAlso <presets.ttl> .
 
